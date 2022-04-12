@@ -1,24 +1,35 @@
-#include <stdio.h>
 /*
-* main - sum even fibonacci numbers under 4 million.
-* Return: Nothing
-*/
+ *  * File: 103-fibonacci.c
+ *   * Auth: Brennan D Baraban
+ *    */
+
+#include <stdio.h>
+
+/**
+ *  * main - Prints the sum of even-valued Fibonacci sequence
+ *   *        terms not exceeding 4000000.
+ *    *
+ *     * Return: Always 0.
+ *      */
 int main(void)
 {
+		unsigned long fib1 = 0, fib2 = 1, fibsum;
+			float tot_sum;
 
-unsigned long count, i, j, k, sums;
-i = sums = 0;
-j = 1;
-for (count = 0; count < 50; count++)
-{
-k = i + j;
-i = j;
-j = k;
-if (k % 2 == 0 && k < 4000000)
-{
-sums += k;
+				while (1)
+						{
+									fibsum = fib1 + fib2;
+											if (fibsum > 4000000)
+															break;
+
+													if ((fibsum % 2) == 0)
+																	tot_sum += fibsum;
+
+															fib1 = fib2;
+																	fib2 = fibsum;
+																		}
+					printf("%.0f\n", tot_sum);
+
+						return (0);
 }
-}
-printf("%lu\n", sums);
-return (0);
-}
+
